@@ -2,9 +2,9 @@
 pragma solidity ^0.8.13;
 
 import {Test, console} from "forge-std/Test.sol";
-import {NFTMarket} from "../../src/w2d4/NFTMarket.sol";
-import {MyERC721} from "../../src/w2d4/NFT.sol";
-import {BaseERC20} from "../../src/w2d4/BaseERC20.sol";
+import {NFTMarket} from "../src/NFTMarket.sol";
+import {MyERC721} from "../src/NFT.sol";
+import {BaseERC20} from "../src/BaseERC20.sol";
 
 contract NFTMarketTest is Test {
     NFTMarket mkt;

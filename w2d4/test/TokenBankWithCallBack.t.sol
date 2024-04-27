@@ -2,10 +2,10 @@
 pragma solidity ^0.8.13;
 
 import {Test, console} from "forge-std/Test.sol";
-import {NFTMarketWithCallBack} from "../../src/w2d4/NFTMarketWithCallBack.sol";
-import {MyERC721} from "../../src/w2d4/NFT.sol";
-import {BaseERC20WithCallBack} from "../../src/w2d4/BaseERC20WithCallBack.sol";
-import {TokenBankWithCallBack} from "../../src/w2d4/TokenBankWithCallBack.sol";
+import {NFTMarketWithCallBack} from "../src/NFTMarketWithCallBack.sol";
+import {MyERC721} from "../src/NFT.sol";
+import {BaseERC20WithCallBack} from "../src/BaseERC20WithCallBack.sol";
+import {TokenBankWithCallBack} from "../src/TokenBankWithCallBack.sol";
 
 contract TokenBankWithCallBackTest is Test {
     BaseERC20WithCallBack public myToken;

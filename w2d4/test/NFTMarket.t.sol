@@ -6,6 +6,7 @@ import {NFTMarket} from "../src/NFTMarket.sol";
 import {MyERC721} from "../src/NFT.sol";
 import {BaseERC20} from "../src/BaseERC20.sol";
 
+
 contract NFTMarketTest is Test {
     NFTMarket mkt;
     MyERC721 nft;
@@ -42,6 +43,8 @@ contract NFTMarketTest is Test {
         myToken.approve(address(mkt), 1000);
         mkt.buy(tokenId);
         vm.stopPrank();
+    
         assertEq(nft.ownerOf(tokenId), alice);
     }
+
 }

@@ -1,0 +1,14 @@
+[profile.default]
+src = "src"
+out = "out"
+libs = ["lib"]
+solc ="0.8.25"
+evm_version='Cancun'
+
+
+build_info = true
+extra_output = ["storageLayout"]
+[rpc_endpoints]
+sepolia = "https://sepolia.infura.io/v3/cbdcf5f3c3c04ea1a7250648abb331b3"
+
+# See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options

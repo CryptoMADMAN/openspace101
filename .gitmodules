@@ -49,3 +49,12 @@
 [submodule "w4d1/erc20up/lib/openzeppelin-contracts-upgradeable"]
 	path = w4d1/erc20up/lib/openzeppelin-contracts-upgradeable
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable
+[submodule "w3d3_permit/sign_permit/lib/forge-std"]
+	path = w3d3_permit/sign_permit/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "w3d3_inscript/inscription/lib/forge-std"]
+	path = w3d3_inscript/inscription/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "w3d3_inscript/inscription/lib/openzeppelin-contracts"]
+	path = w3d3_inscript/inscription/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts

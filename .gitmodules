@@ -58,3 +58,6 @@
 [submodule "w3d3_inscript/inscription/lib/openzeppelin-contracts"]
 	path = w3d3_inscript/inscription/lib/openzeppelin-contracts
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+[submodule "w3d3_permit/sign_permit/lib/openzeppelin-contracts"]
+	path = w3d3_permit/sign_permit/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts

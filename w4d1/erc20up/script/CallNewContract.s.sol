@@ -11,7 +11,9 @@ contract CallContract is Script {
 
         MyTokenV2 token = MyTokenV2(0x61FaBB15EaBdA12Beaccb4f3957E6f85f2e21284);
         string memory res = token.newFunc();
-        console.log("new is ", res);
+        console.log(token.counter);
+        // console.log("new is ", token.counter);
+        // console.log();
 
         vm.stopBroadcast();
     }

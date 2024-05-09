@@ -9,7 +9,9 @@ import "openzeppelin-contracts-upgradeable/contracts/proxy/utils/UUPSUpgradeable
 
 /// @custom:oz-upgrades-from MyToken
 contract MyTokenV2 is Initializable, ERC20Upgradeable, OwnableUpgradeable, ERC20PermitUpgradeable, UUPSUpgradeable {
+    uint256 public counter;
     /// @custom:oz-upgrades-unsafe-allow constructor
+
     constructor() {
         _disableInitializers();
     }
@@ -19,7 +21,7 @@ contract MyTokenV2 is Initializable, ERC20Upgradeable, OwnableUpgradeable, ERC20
         __Ownable_init(initialOwner);
         __ERC20Permit_init("MyTokenV2");
         __UUPSUpgradeable_init();
-
+        counter = 1;
         _mint(msg.sender, 1000000 * 10 ** decimals());
     }
 

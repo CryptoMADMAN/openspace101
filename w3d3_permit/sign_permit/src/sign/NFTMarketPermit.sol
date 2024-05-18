@@ -13,12 +13,14 @@ contract NFTMarket is Nonces, IERC721Receiver {
     mapping(uint256 => address) public tokenSeller;
     IERC20 public immutable token;
     IERC721 public immutable nftToken;
+    address admin;
 
     event OnERC721Received(address operator, address from, uint256 tokenId, bytes data);
 
     constructor(address token_, address nftToken_) {
         token = IERC20(token_);
         nftToken = IERC721(nftToken_);
+        admin = msg.sender;
     }
 
     function onERC721Received(address, address, uint256, bytes calldata) external pure override returns (bytes4) {
@@ -42,7 +44,7 @@ contract NFTMarket is Nonces, IERC721Receiver {
     using ECDSA for bytes32;
     using MessageHashUtils for bytes32;
 
-    function permitBuy(uint256 tokenId_, uint256 amount_, uint256 nonce, bytes calldata signature) {
+    function permitBuy(uint256 tokenId_, uint256 nonce, bytes calldata signature) public {
         _useCheckedNonce(msg.sender, nonce);
 
         bytes32 hash = keccak256(abi.encodePacked(msg.sender, nonce));
@@ -50,7 +52,7 @@ contract NFTMarket is Nonces, IERC721Receiver {
         address signAddr = hash.recover(signature);
         require(signAddr == admin, "error signiture");
 
-        _useNonce(owner);
+        _useNonce(msg.sender);
         buy(tokenId_);
     }
 }

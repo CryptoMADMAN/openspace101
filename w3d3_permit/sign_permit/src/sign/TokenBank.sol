@@ -13,6 +13,18 @@ contract TokenBank {
         _token = addr_;
     }
 
+    function permitDeposit(uint256 amount_, uint256 deadline_, uint8 v, bytes32 r, bytes32 s) external {
+        IERC20Permit(_token).permit(msg.sender, address(this), amount_, deadline_, v, r, s);
+        deposit(amount_);
+    }
+
+    function permitDeposit(address owner_, uint256 amount_, uint256 deadline_, uint8 v, bytes32 r, bytes32 s)
+        external
+    {
+        IERC20Permit(_token).permit(owner_, address(this), amount_, deadline_, v, r, s);
+        deposit(amount_);
+    }
+
     function permitDeposit(
         address owner_,
         address spender_,
@@ -22,6 +34,7 @@ contract TokenBank {
         bytes32 r,
         bytes32 s
     ) external {
+        // IERC20Permit(_token).permit(owner_, spender_, amount_, deadline_, v, r, s);
         IERC20Permit(_token).permit(owner_, spender_, amount_, deadline_, v, r, s);
         deposit(amount_);
     }

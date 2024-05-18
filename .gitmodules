@@ -61,3 +61,15 @@
 [submodule "w3d3_permit/sign_permit/lib/openzeppelin-contracts"]
 	path = w3d3_permit/sign_permit/lib/openzeppelin-contracts
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
+[submodule "w4d5/w1d5_link/lib/forge-std"]
+	path = w4d5/w1d5_link/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "w4d5/lib/forge-std"]
+	path = w4d5/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "w5d2_StakingPool/lib/forge-std"]
+	path = w5d2_StakingPool/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "w5d2_StakingPool/lib/openzeppelin-contracts"]
+	path = w5d2_StakingPool/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts

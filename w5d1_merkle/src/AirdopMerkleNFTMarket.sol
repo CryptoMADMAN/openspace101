@@ -7,7 +7,7 @@ import {MyERC721} from "../src/copy/MyERC721.sol";
 import {MerkleProof} from "@openzeppelin/contracts/utils/cryptography/MerkleProof.sol";
 import {Address} from "@openzeppelin/contracts/utils/Address.sol";
 
-contract AirDropMerkleMarket is NFTMarketPermit{
+contract AirdopMerkleNFTMarket is NFTMarketPermit{
 
     MyERC20Permit erc20;
     bytes32 immutable merkleRoot;
@@ -30,9 +30,9 @@ contract AirDropMerkleMarket is NFTMarketPermit{
         require(nftToken.ownerOf(tokenId)==address(this),"not owner");
         
         require(tokenSeller[tokenId]!=address(0),"not list");
-        require(amount>=tokenIdPrice[tokenId],"amount is not enough,should be more than tokenIdPrice/2" );
-        erc20.transferFrom(msg.sender, tokenSeller[tokenId], tokenIdPrice[tokenId]);
-        nftToken.safeTransferFrom(tokenSeller[tokenId], msg.sender, tokenId);
+        require(amount>=tokenIdPrice[tokenId]/2,"amount is not enough,should be more than tokenIdPrice/2" );
+        erc20.transferFrom(msg.sender, tokenSeller[tokenId], tokenIdPrice[tokenId]/2);
+        nftToken.safeTransferFrom(address(this), msg.sender, tokenId);
 
         delete tokenIdPrice[tokenId];
         delete tokenSeller[tokenId];
@@ -42,5 +42,15 @@ contract AirDropMerkleMarket is NFTMarketPermit{
         bytes32 node=keccak256(abi.encodePacked(leaf_));
         return MerkleProof.verify(merkleProof_, merkleRoot, node);
     }
+    //copy from template
+    function multicall(bytes[] calldata datas) public returns (bytes[] memory results) {
+        results = new bytes[](datas.length);
+        for (uint256 i = 0; i < datas.length; i++) {
+            results[i] = Address.functionDelegateCall(address(this), datas[i]);
+        }
+        return results;
+    }
+
+
 
 }

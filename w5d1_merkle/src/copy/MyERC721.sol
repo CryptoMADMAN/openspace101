@@ -11,8 +11,8 @@ contract MyERC721 is ERC721URIStorage {
     //  QmZNFPwox146ohY93ViFD8omSThRAVYF1A96MNHbWoa2Nr
 
     // ipfs://QmT4YDZ2dgTSpfHwPndnSuvHrAXNvtDBKNDUwN8nuZiVHT
-    function mint(address _student, string memory _tokenURI) public returns (uint256) {
-        _mint(_student, ++tid);
+    function mint(address _to ,string memory _tokenURI) public returns (uint256) {
+        _mint(_to, ++tid);
         _setTokenURI(tid, _tokenURI);
 
         return tid;
